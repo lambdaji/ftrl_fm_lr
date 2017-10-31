@@ -1,0 +1,18 @@
+package lambda_fm;
+
+message ftrl_weight
+{
+	optional	uint64	feat_id 	= 1;
+	optional	float		wi				= 2;
+	optional	float		ni				=	3;
+	optional	float		zi				=	4;
+}
+
+message ftrl_model
+{
+	optional	ftrl_weight	bias	=	1;
+	repeated  ftrl_weight w			= 2;
+	repeated  ftrl_weight v			= 3;
+}
+
+option optimize_for = LITE_RUNTIME;
