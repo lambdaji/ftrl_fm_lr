@@ -1,0 +1,11 @@
+syntax = "proto2";
+package lambda_sparse;
+
+message Config
+{
+	optional	double		learning_rate 			= 1;
+	optional	double		alpha								= 2;	//for ftrl
+	optional	double		beta								=	3;	//for ftrl
+	optional	double		l1									=	4;	//lambda for L1 regular
+	optional	double		l2									=	5;	//lambda for L2 regular
+}

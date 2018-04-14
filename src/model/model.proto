@@ -1,0 +1,20 @@
+syntax = "proto2";
+package lambda_sparse;
+
+message FeatWgt
+{
+	optional	uint64	feat_id 	= 1;
+	optional	float		wi				= 2;
+	optional	float		ni				=	3;	//for ftrl
+	optional	float		zi				=	4;	//for ftrl
+	optional	float		gt				=	5;	//for adagrad
+}
+
+message ModelParameters
+{
+	optional	FeatWgt		bias		=	1;
+	repeated  FeatWgt 	w				= 2;
+	repeated  FeatWgt 	v				= 3;	//lr-0; fm-n*f; ffm-n*f*k
+}
+
+option optimize_for = LITE_RUNTIME;
