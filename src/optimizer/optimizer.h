@@ -8,7 +8,14 @@
 #ifndef SRC_OPTIMIZER_OPTIMIZER_H_
 #define SRC_OPTIMIZER_OPTIMIZER_H_
 
+class Optimizer {
+public:
+	Optimizer();
+	virtual ~Optimizer() { };
 
+	virtual double fx() = 0;
+	virtual double dfx()  = 0;
+};
 
 
 

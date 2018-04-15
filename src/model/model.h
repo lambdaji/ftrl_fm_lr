@@ -8,18 +8,34 @@
 #ifndef SRC_MODEL_MODEL_H_
 #define SRC_MODEL_MODEL_H_
 
-#include "feat/instance.pb.h"
+#include "xy/xy.h"
 #include "f(x)/f_x_.h"
 #include "loss/loss.h"
 #include "optimizer/optimizer.h"
+#include "model.pb.h"
 #include "util/config.pb.h"
 
-class model {
+using namespace std;
+using namespace lambda_sparse;
+
+class GModel {
 public:
-	model();
-	~model();
+	GModel();
+	~GModel();
 
+	void init();
+	void train();
+	void predict();
+	void load_model();
+	void save_model();
 
+private:
+	DataSet g_data;
+	f_x_ g_f_x_;
+	Loss g_loss;
+	Optimizer g_opt;
+	ModelParameters g_params;
+	Config g_config;
 };
 
 
