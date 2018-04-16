@@ -20,7 +20,7 @@ using namespace lambda_sparse;
 
 class GModel {
 public:
-	GModel();
+	GModel(Config& config);
 	~GModel();
 
 	void init();
@@ -29,6 +29,7 @@ public:
 	void load_model();
 	void save_model();
 
+	void run();
 private:
 	DataSet g_data;
 	f_x_ g_f_x_;

@@ -5,6 +5,14 @@
  *      Author: lambdaji
  */
 
+#include "model.h"
 
+GModel::GModel(Config& config)
+{
+	g_config = config;
+}
 
+void GModel::init()
+{
 
+}

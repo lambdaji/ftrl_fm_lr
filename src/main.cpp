@@ -26,7 +26,22 @@ DEFINE_double(l2, 0.2, "lambda for L2 regular");
 
 int main(int argc, char **argv) {
   google::ParseCommandLineFlags(&argc, &argv, true);
+  if (!::google::ParseCommandLineFlags(&argc, &argv, true)) {
+      LOG(ERROR) << "Failed to parse arguments. "
+                 << "Use --help to show help.";
+      return 1;
+    }
+    ::google::SetArgv(argc, const_cast<const char**>(argv));
+    ::google::InitGoogleLogging(argv[0]);
 
+    if (FLAGS_input.empty()) {
+      LOG(ERROR) << "Please set --input.";
+      return 1;
+    }
+    if (FLAGS_model.empty()) {
+      LOG(ERROR) << "Please set --model.";
+      return 1;
+    }
   // Initialize Google's logging library.
   google::InitGoogleLogging(argv[0]);
   //FLAGS_colorlogtostderr = true;
